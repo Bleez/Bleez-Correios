@@ -1,0 +1,7 @@
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="product.info.extrahint">
+            <block class="Bleez\Correios\Block\Catalog\Product\View\CalcularFrete" after="product.info.social" template="catalog/product/view/frete.phtml"></block>
+        </referenceContainer>
+    </body>
+</page>

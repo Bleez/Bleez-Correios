@@ -1,0 +1,28 @@
+<?php
+/**
+ * Simular frete
+ *
+ * @var $this \Bleez\Correios\Block\Catalog\Product\View\CalcularFrete
+ */
+?>
+<form id="simularFrete" action="<?php echo $this->getUrl('rest/V1/estimarFrete'); ?>">
+    <div class="fieldset">
+        <div class="control">
+            <input type="text" class="input-text" id="cep" required="required" pattern="\d{5}-{0,1}\d{3}" title="Cep invalido">
+        </div>
+        <div class="actions">
+            <input type="submit" value="Calcular Frete" class="action primary" id="sendFrete"  />
+        </div>
+    </div>
+    <ul id="containerFrete" style="display: none">
+
+    </ul>
+</form>
+
+<script type="text/x-magento-init">
+    {
+        "*": {
+            "Bleez_Correios/js/simularFrete": []
+        }
+    }
+</script>

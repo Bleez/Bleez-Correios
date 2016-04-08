@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <carriers>
+            <correios>
+                <active>0</active>
+                <sallowspecific>1</sallowspecific>
+                <specificcountry>BR</specificcountry>
+                <model>Bleez\Correios\Model\Carrier\Correios</model>
+                <name>Correios</name>
+                <title>Correios</title>
+                <type>I</type>
+                <show_days>1</show_days>
+                <text_days> - Entrega em até %d dias úteis</text_days>
+                <add_days>0</add_days>
+                <add_tax>0</add_tax>
+                <format>2</format>
+                <max_package_weight>300</max_package_weight>
+                <aviso_recebimento>0</aviso_recebimento>
+                <mao_propria>0</mao_propria>
+                <valor_declarado>0</valor_declarado>
+                <servicesnames>[{"id":"41068","service":"Pac 41068","name":"Pac"},{"id":"41106","service":"Pac 41106","name":"Pac"},{"id":"41300","service":"Pac Grandes Formatos","name":"Pac"},{"id":"81019","service":"E-Sedex Standard","name":"E-Sedex"},{"id":"40096","service":"Sedex 40096","name":"Sedex"},{"id":"40436","service":"Sedex 40436","name":"Sedex"},{"id":"40444","service":"Sedex 40444","name":"Sedex"},{"id":"40169","service":"Sedex 12","name":"Sedex 12"},{"id":"40215","service":"Sedex 10","name":"Sedex 10"},{"id":"40886","service":"Sedex 10 Pacote","name":"Sedex 10"},{"id":"40290","service":"Sedex Hoje 40290","name":"Sedex Hoje"},{"id":"40878","service":"Sedex Hoje 40878","name":"Sedex Hoje"},{"id":"40010","service":"Sedex a vista","name":"Sedex a vista"},{"id":"40045","service":"Sedex Varejo a Cobrar","name":"Sedex Varejo a Cobrar"},{"id":"41009","service":"Sedex Agrupado","name":"Sedex Agrupado"},{"id":"40380","service":"Sedex Reverso","name":"Sedex Reverso"},{"id":"40630","service":"Sedex Pagamento na Entrega","name":"Sedex Pagamento na Entrega"},{"id":"10065","service":"Carta Comercial a Faturar","name":"Carta Comercial"},{"id":"10014","service":"Carta Registrada","name":"Carta Registrada"},{"id":"10707","service":"Carta Comercial Registrada","name":"Carta Comercial Registrada"}]</servicesnames>
+                <free_shipping_enabled>0</free_shipping_enabled>
+                <free_shipping_service>0</free_shipping_service>
+                <free_shipping_only>0</free_shipping_only>
+                <free_shipping_text>Frete Grátis</free_shipping_text>
+                <divisao_frete>1</divisao_frete>
+            </correios>
+        </carriers>
+    </default>
+</config>

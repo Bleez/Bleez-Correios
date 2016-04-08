@@ -1,0 +1,145 @@
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="carriers">
+            <group id="correios" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Correios</label>
+                <field id="active" translate="label comment" type="select" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Ativo</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="name" translate="label" type="text" sortOrder="2" showInDefault="2" showInWebsite="1" showInStore="1">
+                    <label>Titulo</label>
+                    <depends>
+                        <field id="active">1</field>
+                    </depends>
+                </field>
+                <field id="types" translate="label comment" type="multiselect" sortOrder="3" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Serviços de frete</label>
+                    <source_model>Bleez\Correios\Model\Config\Services</source_model>
+                    <depends>
+                        <field id="active">1</field>
+                    </depends>
+                </field>
+                <field id="format" translate="label comment" type="select" sortOrder="4" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Formato da embalagem</label>
+                    <source_model>Bleez\Correios\Model\Config\Formato</source_model>
+                    <depends>
+                        <field id="active">1</field>
+                    </depends>
+                </field>
+                <field id="show_days" translate="label comment" type="select" sortOrder="5" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Exibir prazo de entrega</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <depends>
+                        <field id="active">1</field>
+                    </depends>
+                </field>
+                <field id="text_days" translate="label comment" type="text" sortOrder="6" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Texto prazo de entrega</label>
+                    <depends>
+                        <field id="active">1</field>
+                    </depends>
+                </field>
+                <field id="add_days" translate="label comment" type="text" sortOrder="7" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Acréscimo de dias ao prazo de entrega</label>
+                    <validate>integer</validate>
+                    <depends>
+                        <field id="active">1</field>
+                    </depends>
+                </field>
+                <field id="add_tax" translate="label" type="text" sortOrder="8" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Taxa de manuseio</label>
+                    <validate>float</validate>
+                    <depends>
+                        <field id="active">1</field>
+                    </depends>
+                </field>
+                <field id="free_shipping_enabled" translate="label" type="select" sortOrder="9" showInStore="1" showInWebsite="1" showInDefault="1">
+                    <label>Elegivel a frete grátis</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <depends>
+                        <field id="active">1</field>
+                    </depends>
+                </field>
+                <field id="free_shipping_text" translate="label" type="text" sortOrder="9" showInStore="1" showInWebsite="1" showInDefault="1">
+                    <label>Texto do frete grátis</label>
+                    <depends>
+                        <field id="active">1</field>
+                    </depends>
+                </field>
+                <field id="free_shipping_service" translate="label" type="select" sortOrder="10" showInStore="1" showInWebsite="1" showInDefault="1">
+                    <label>Serviço de frete grátis</label>
+                    <source_model>Bleez\Correios\Model\Config\Services</source_model>
+                    <tooltip>Esse serviço deve estar habilitado</tooltip>
+                    <depends>
+                        <field id="active">1</field>
+                        <field id="free_shipping_enabled">1</field>
+                    </depends>
+                </field>
+                <field id="free_shipping_only" translate="label" type="select" sortOrder="11" showInStore="1" showInWebsite="1" showInDefault="1">
+                    <label>Mostrar somente frete grátis</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <depends>
+                        <field id="active">1</field>
+                    </depends>
+                </field>
+                <field id="aviso_recebimento" translate="label" type="select" sortOrder="12" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Aviso de Recebimento</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <depends>
+                        <field id="active">1</field>
+                    </depends>
+                </field>
+                <field id="mao_propria" translate="label" type="select" sortOrder="13" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Mão Propria</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <depends>
+                        <field id="active">1</field>
+                    </depends>
+                </field>
+                <field id="valor_declarado" translate="select" type="select" sortOrder="14" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Valor Declarado</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <depends>
+                        <field id="active">1</field>
+                    </depends>
+                </field>
+                <field id="divisao_frete" translate="label" type="select" sortOrder="15" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Habilitar divisão de frete</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <depends>
+                        <field id="active">1</field>
+                    </depends>
+                </field>
+                <field id="ect" translate="label" type="text" sortOrder="16" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Código administrativo(ECT)</label>
+                    <comment>Obrigatório se serviço for com contrato</comment>
+                    <depends>
+                        <field id="active">1</field>
+                    </depends>
+                </field>
+                <field id="password" translate="label" type="password" sortOrder="17" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Senha</label>
+                    <comment>Obrigatório se serviço for com contrato</comment>
+                    <depends>
+                        <field id="active">1</field>
+                    </depends>
+                </field>
+                <field id="cnpj" translate="label" type="text" sortOrder="18" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Cnpj</label>
+                    <depends>
+                        <field id="active">1</field>
+                    </depends>
+                </field>
+                <field id="servicesnames" translate="label" sortOrder="19" showInStore="1" showInWebsite="1" showInDefault="1">
+                    <label>Nome dos serviços</label>
+                    <frontend_model>Bleez\Correios\Block\System\Config\Form\Field\ServicesNames</frontend_model>
+                    <backend_model>Bleez\Correios\Model\Config\Backend\ServicesNames</backend_model>
+                    <depends>
+                        <field id="active">1</field>
+                    </depends>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

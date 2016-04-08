@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @copyright Copyright (c) 2015 X.commerce, Inc. (http://www.magentocommerce.com)
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Bleez\Correios\Api\ConsultaInterface" type="Bleez\Correios\Model\Consulta" />
+    <!--<type name="Magento\Shipping\Block\Adminhtml\View">-->
+        <!--<plugin name="bleez-correios-view" type="Bleez\Correios\Plugin\Shipping\Block\Adminhtml\View" sortOrder="20"/>-->
+    <!--</type>-->
+    <type name="Bleez\Correios\Model\Consulta">
+        <arguments>
+            <argument name="modelRegion" xsi:type="object">Magento\Directory\Model\Region</argument>
+            <argument name="helperSigep" xsi:type="object">Bleez\Correios\Helper\Sigep</argument>
+        </arguments>
+    </type>
+    <type name="Bleez\Correios\Model\Carrier\Correios">
+        <arguments>
+            <argument name="trackerRequest" xsi:type="object">Bleez\Correios\Model\Tracker\Request</argument>
+            <argument name="helper" xsi:type="object">Bleez\Correios\Helper\Data</argument>
+            <argument name="helperSigep" xsi:type="object">Bleez\Correios\Helper\Sigep</argument>
+        </arguments>
+    </type>
+    <type name="Bleez\Correios\Block\Adminhtml\Catalog\Product\Edit\CorreiosLimit">
+        <arguments>
+            <argument name="helper" xsi:type="object">Bleez\Correios\Helper\Data</argument>
+        </arguments>
+    </type>
+</config>

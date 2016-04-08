@@ -1,0 +1,26 @@
+{
+    "name": "bleez/correios",
+    "description": "N/A",
+    "require": {
+        "php": "~5.5.0|~5.6.0|~7.0.0"
+    },
+    "type": "magento2-module",
+    "version": "0.0.1",
+    "license": [
+        "OSL-3.0",
+        "AFL-3.0"
+    ],
+    "require": {
+        "php": ">=5.1.0",
+        "tcesarpinho/php-sigep": "dev-master"
+    },
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "Bleez\\Correios\\": ""
+        }
+    },
+    "minimum-stability": "dev"
+}

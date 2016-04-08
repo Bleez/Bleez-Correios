@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2015 Magento. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceBlock name="checkout.cart.shipping">
+            <arguments>
+                <argument name="jsLayout" xsi:type="array">
+                    <item name="components" xsi:type="array">
+                        <item name="block-summary" xsi:type="array">
+                            <item name="children" xsi:type="array">
+                                <item name="block-shipping" xsi:type="array">
+                                    <item name="children" xsi:type="array">
+                                        <item name="address-fieldsets" xsi:type="array">
+                                            <item name="children" xsi:type="array">
+                                                <item name="postcode" xsi:type="array">
+                                                    <item name="component" xsi:type="string">Bleez_Correios/js/form/element/post-code</item>
+                                                    <item name="config" xsi:type="array">
+                                                        <item name="elementTmpl" xsi:type="string">Bleez_Correios/form/element/post-code</item>
+                                                    </item>
+                                                </item>
+                                            </item>
+                                        </item>
+                                    </item>
+                                </item>
+                            </item>
+                        </item>
+                    </item>
+                </argument>
+            </arguments>
+        </referenceBlock>
+    </body>
+</page>

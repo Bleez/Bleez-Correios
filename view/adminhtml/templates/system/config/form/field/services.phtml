@@ -1,0 +1,96 @@
+<?php
+/**
+ * var $this \Bleez\Correios\Block\System\Config\Form\Field\ServicesNames
+ */
+?>
+
+<?php
+$_htmlId = $block->getHtmlId() ? $block->getHtmlId() : '_' . uniqid();
+$_colspan = $block->isAddAfter() ? 2 : 1;
+?>
+<div class="design_theme_ua_regexp" id="grid<?php /* @escapeNotVerified */ echo $_htmlId; ?>">
+    <div class="admin__control-table-wrapper">
+        <table class="admin__control-table">
+            <thead>
+            <tr>
+                <?php foreach ($block->getColumns() as $columnName => $column): ?>
+                    <th><?php /* @escapeNotVerified */ echo $column['label']; ?></th>
+                <?php endforeach;?>
+            </tr>
+            </thead>
+            <tbody id="addRow<?php /* @escapeNotVerified */ echo $_htmlId; ?>"></tbody>
+        </table>
+    </div>
+    <input type="hidden" name="<?php /* @escapeNotVerified */ echo $block->getElement()->getName(); ?>[__empty]" value="" />
+
+    <script>
+        require([
+            'mage/template',
+            'prototype'
+        ], function (mageTemplate) {
+        // create row creator
+        window.arrayRow<?php /* @escapeNotVerified */ echo $_htmlId ?> = {
+
+            // define row prototypeJS template
+            template: mageTemplate(
+                    '<tr id="<%- _id %>">'
+                    <?php foreach ($block->getColumns() as $columnName => $column): ?>
+                            + '<td>'
+                            + '<?php /* @escapeNotVerified */ echo $block->renderCellTemplate($columnName)?>'
+                            + '<\/td>'
+                        <?php endforeach; ?>
+            ),
+
+            add: function(rowData, insertAfterId) {
+                // generate default template data
+                var templateValues;
+
+                // Prepare template values
+                if (rowData) {
+                    templateValues = rowData;
+                } else {
+                    var d = new Date();
+                    templateValues = {
+                    <?php foreach ($block->getColumns() as $columnName => $column): ?>
+                        <?php /* @escapeNotVerified */ echo $columnName ?>: '',
+                        <?php endforeach; ?>
+                        'option_extra_attrs': {},
+                        _id: '_' + d.getTime() + '_' + d.getMilliseconds()
+                    };
+                }
+
+                // Insert new row after specified row or at the bottom
+                if (insertAfterId) {
+                    Element.insert($(insertAfterId), {after: this.template(templateValues)});
+                } else {
+                    Element.insert($('addRow<?php /* @escapeNotVerified */ echo $_htmlId ?>'), {bottom: this.template(templateValues)});
+                }
+
+                // Fill controls with data
+                if (rowData) {
+                    var rowInputElementNames = Object.keys(rowData.column_values);
+                    for (var i = 0; i < rowInputElementNames.length; i++) {
+                        if ($(rowInputElementNames[i])) {
+                            $(rowInputElementNames[i]).value = rowData.column_values[rowInputElementNames[i]];
+                        }
+                    }
+                }
+
+            },
+
+        }
+
+        // add existing rows
+        <?php
+        foreach ($block->getArrayRows() as $_rowId => $_row) {
+            /* @escapeNotVerified */ echo "arrayRow{$_htmlId}.add(" . $_row->toJson() . ");\n";
+        }
+        ?>
+
+        // Toggle the grid availability, if element is disabled (depending on scope)
+        <?php if ($block->getElement()->getDisabled()):?>
+            toggleValueElements({checked: true}, $('grid<?php /* @escapeNotVerified */ echo $_htmlId; ?>').parentNode);
+        <?php endif;?>
+        });
+    </script>
+</div>
