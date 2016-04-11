@@ -8,9 +8,14 @@ Modulo de correios para magento 2
 
 ```sh
 composer require bleez/correios
-php -f bin/magento module:enable --clear-static-content Bleez_Correios
-php -f bin/magento setup:upgrade
+php bin/magento module:enable --clear-static-content Bleez_Correios
+php bin/magento setup:upgrade
+php bin/magento setup:static-content:deploy //ou php bin/magento setup:static-content:deploy pt_BR
 ```
+
+### Configurar cep de origem
+
+* Configuration -> Sales -> Shipping Settings -> Origin -> Zip Code
 
 ## Features
 
