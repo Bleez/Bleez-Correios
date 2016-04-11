@@ -19,10 +19,10 @@ php bin/magento setup:static-content:deploy //ou php bin/magento setup:static-co
 
 ## Features
 
-* Calculo de frete por peso, largura, altura e comprimento
-* Diferentes formatos de embalafem
+* Cálculo de frete por peso, largura, altura e comprimento
+* Diferentes formatos de embalagem
 * Alerta de limite de peso, largura, altura e comprimento no cadastro de produto
 * Divisão de frete (Ex: caso o pacote ultrapasse o limite de peso dos correios é contabilizado mais de um frete)
 * Rastreamento de objetos
-* Calculo de frete na pagina do produto
-* Autopreenchimento dos formularios do carrinho e checkout baseado no CEP
+* Cálculo de frete na página do produto
+* Autopreenchimento dos formulários do carrinho e checkout baseado no CEP
