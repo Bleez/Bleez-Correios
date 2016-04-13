@@ -7,7 +7,7 @@ Modulo de correios para magento 2
 ### Via Composer
 
 ```sh
-composer require bleez/correios
+composer require bleez/correios --ignore-platform-reqs
 php bin/magento module:enable --clear-static-content Bleez_Correios
 php bin/magento setup:upgrade
 php bin/magento setup:static-content:deploy //ou php bin/magento setup:static-content:deploy pt_BR
