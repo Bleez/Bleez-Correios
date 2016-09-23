@@ -19,7 +19,7 @@ php bin/magento setup:static-content:deploy //ou php bin/magento setup:static-co
 
 ### Ativar Modulo
 
-$ Configuration -> Sales -> Shipping Method -> Correios -> Ativo
+* Configuration -> Sales -> Shipping Method -> Correios -> Ativo
 
 ## Features
 
