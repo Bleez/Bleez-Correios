@@ -111,8 +111,15 @@
                         <field id="active">1</field>
                     </depends>
                 </field>
+                <field id="codigoadm" translate="label" type="text" sortOrder="16" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Código administrativo</label>
+                    <comment>Obrigatório se serviço for com contrato</comment>
+                    <depends>
+                        <field id="active">1</field>
+                    </depends>
+                </field>
                 <field id="ect" translate="label" type="text" sortOrder="16" showInDefault="1" showInWebsite="1" showInStore="1">
-                    <label>Código administrativo(ECT)</label>
+                    <label>Usuario(ECT)</label>
                     <comment>Obrigatório se serviço for com contrato</comment>
                     <depends>
                         <field id="active">1</field>

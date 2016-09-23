@@ -1,0 +1,61 @@
+<!--
+/**
+ * Copyright © 2015 Magento. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<!--@subject Notificação de envio @-->
+<!--@vars {
+"var formattedBillingAddress|raw":"Billing Address",
+"var billing.getName()":"Guest Customer Name",
+"var order.increment_id":"Order Id",
+"var payment_html|raw":"Payment Details",
+"var comment":"Shipment Comment",
+"var shipment.increment_id":"Shipment Id",
+"layout handle=\"sales_email_order_shipment_items\" shipment=$shipment order=$order":"Shipment Items Grid",
+"block class='Magento\\\\Framework\\\\View\\\\Element\\\\Template' area='frontend' template='Magento_Sales::email\/shipment\/track.phtml' shipment=$shipment order=$order":"Shipment Track Details",
+"var formattedShippingAddress|raw":"Shipping Address",
+"var order.shipping_description":"Shipping Description",
+"var order.getShippingDescription()":"Shipping Description"
+} @-->
+{{template config_path="design/email/header_template"}}
+
+<table width="100%">
+    <tr class="email-intro">
+        <td>
+            <p>
+                Pode comemorar, <strong>sua entrega está a caminho</strong>.
+            </p>
+            <p>
+                Informações para rastreamento do pedido:
+            </p>
+            {{block class='Magento\\Framework\\View\\Element\\Template' area='frontend' template='Bleez_Correios::email/shipment/track.phtml' shipment=$shipment order=$order}}
+            <br />
+            {{depend comment}}
+            <p>
+                Você também recebeu uma mensagem de um dos nossos operadores:
+            </p>
+
+            <table class="message-info">
+                <tr>
+                    <td>
+                        {{var comment|escape|nl2br}}
+                    </td>
+                </tr>
+            </table>
+            {{/depend}}
+        </td>
+    </tr>
+    <tr class="email-summary">
+        <td>
+            <h1>Produtos Enviados</h1>
+        </td>
+    </tr>
+    <tr class="email-information">
+        <td>
+            {{layout handle="sales_email_order_shipment_items" shipment=$shipment order=$order}}
+        </td>
+    </tr>
+</table>
+
+{{template config_path="design/email/footer_template"}}

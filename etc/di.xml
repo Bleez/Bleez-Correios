@@ -9,6 +9,11 @@
     <!--<type name="Magento\Shipping\Block\Adminhtml\View">-->
         <!--<plugin name="bleez-correios-view" type="Bleez\Correios\Plugin\Shipping\Block\Adminhtml\View" sortOrder="20"/>-->
     <!--</type>-->
+    <type name="Bleez\Correios\Block\Email">
+        <arguments>
+            <argument name="helper" xsi:type="object">Magento\Shipping\Helper\Data</argument>
+        </arguments>
+    </type>
     <type name="Bleez\Correios\Model\Consulta">
         <arguments>
             <argument name="modelRegion" xsi:type="object">Magento\Directory\Model\Region</argument>

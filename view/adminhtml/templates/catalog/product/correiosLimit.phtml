@@ -16,7 +16,7 @@
         var format = '<?php echo $this->getFormat(); ?>';
 
         $('#weight').parent().after('<div id="weightType" style="display: none; width: 100%"></div>');
-        $('#weight').parent().after('<span id="weightLimit" style="display: none; width: 420px; float: right; color: #ff0000"></span>');
+        $('#weight').parent().after('<span id="weightLimit" style="display: none; color: #ff0000"></span>');
         $('#weight').on('change', function(e) {
             showWeightsAlerts();
         });
@@ -31,25 +31,25 @@
 
         function showWeightsAlerts(){
             if(parseInt($('#weight').val()) > <?php echo $this->getLimitWeight(); ?>){
-                $('#weightLimit').html('Limite maximo do tipo de frete do correios é de <?php echo $this->getLimitWeight(); ?>kg o frete não irá ser calculado para esse produto').show();
+                $('#weightLimit').html('Limite máximo do tipo de frete do correios é de <?php echo $this->getLimitWeight(); ?>kg o frete não irá ser calculado para esse produto').show().attr('style', 'color: #ff0000; display: block; font-size: 13px; margin-top: 10px');
             }else{
                 $('#weightLimit').hide()
             }
         }
 
-        $('#largura').parent().append('<div id="larguraLimit" style="display: none; float: left; color: #ff0000"></div>');
+        $('#largura').parent().append('<div id="larguraLimit" style="color: #ff0000; display: none; font-size: 13px; float: left;"></div>');
         $('#largura').on('change', function(e) {
             showSizeAlert('largura', limits);
             showSomaLimit(format, limits);
         });
 
-        $('#altura').parent().append('<div id="alturaLimit" style="display: none; float: left; color: #ff0000"></div>');
+        $('#altura').parent().append('<div id="alturaLimit" style="color: #ff0000; display: none; font-size: 13px; float: left; "></div>');
         $('#altura').on('change', function(e) {
             showSizeAlert('altura', limits);
             showSomaLimit(format, limits);
         });
 
-        $('#comprimento').parent().append('<div id="comprimentoLimit" style="display: none; float: left; color: #ff0000"></div>');
+        $('#comprimento').parent().append('<div id="comprimentoLimit" style="color: #ff0000; font-size: 13px; display: none; float: left;"></div>');
         $('#comprimento').on('change', function(e) {
             showSizeAlert('comprimento', limits);
             showSomaLimit(format, limits);
@@ -57,12 +57,12 @@
 
         function showSizeAlert(idElement, limits){
             if($('#'+idElement).val() < limits['minimo'][idElement]){
-                $('#'+idElement+'Limit').html('Valor minimo de '+limits['minimo'][idElement]+' vai ser atribuido no calculo do frete');
+                $('#'+idElement+'Limit').html('Valor mínimo de '+limits['minimo'][idElement]+' vai ser atribuido no calculo do frete');
                 $('#'+idElement+'Limit').show();
                 return;
             }
             if($('#'+idElement).val() > limits['maximo'][idElement]){
-                $('#'+idElement+'Limit').html('Valor maximo de '+limits['maximo'][idElement]+ '! O frete dos correios não será calculado nesse produto');
+                $('#'+idElement+'Limit').html('Valor máximo de '+limits['maximo'][idElement]+ '! O frete dos correios não será calculado nesse produto');
                 $('#'+idElement+'Limit').show();
                 return;
             }
@@ -74,7 +74,7 @@
             $('#attribute-largura-container').find('.label span').html('Diametro');
         }
 
-        $('#attribute-largura-container').before('<div id="somaLimit" style="display: none; float: left; color: #ff0000; text-align: center; width: 100%"></div>');
+        $('#attribute-largura-container').before('<div id="somaLimit" style="color: #ff0000; display: none; font-size: 13px; margin-bottom: 10px; padding-left: 20%; text-align: left; width: 60%;"></div>');
 
         function showSomaLimit(format, limits){
             if(format != 'envelope'){

@@ -101,6 +101,11 @@ class Consulta extends \Magento\Framework\DataObject implements Dados, ConsultaI
         $phpSigep = new Real();
         $data  = $phpSigep->consultaCep($cep);
 
+        if($data->getResult() == null){
+            $this->setData('error', $data->getErrorMsg());
+            return $this;
+        }
+
         if($data->getErrorCode() == null){
             $this->setData('logradouro', $data->getResult()->get('endereco'));
             $this->setData('bairro', $data->getResult()->get('bairro'));
@@ -157,11 +162,15 @@ class Consulta extends \Magento\Framework\DataObject implements Dados, ConsultaI
         $this->_totalsCollector->collectAddressTotals($this->_quote, $shipping);
         $rates = $shipping->collectShippingRates()->getAllShippingRates();
         $data = array();
-        foreach($rates as $k => $rate){
-            $data[$k]['title'] = $rate->getMethodTitle();
-            $data[$k]['price'] = $this->_priceHelper->currency($rate->getPrice(), true, false);
+        if(count($rates)){
+            foreach ($rates as $k => $rate) {
+                $data[$k]['title'] = $rate->getMethodTitle();
+                $data[$k]['price'] = $this->_priceHelper->currency($rate->getPrice(), true, false);
+            }
+            return json_encode($data);
+        }else{
+            throw new \Exception('Não foi possivel calcular frete.');
         }
-        return json_encode($data);
     }
 
 
@@ -213,6 +222,11 @@ class Consulta extends \Magento\Framework\DataObject implements Dados, ConsultaI
     public function getUf()
     {
         return $this->getData('uf');
+    }
+
+    public function getError()
+    {
+        return $this->getData('error');
     }
 
 }

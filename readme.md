@@ -17,6 +17,10 @@ php bin/magento setup:static-content:deploy //ou php bin/magento setup:static-co
 
 * Configuration -> Sales -> Shipping Settings -> Origin -> Zip Code
 
+### Ativar Modulo
+
+$ Configuration -> Sales -> Shipping Method -> Correios -> Ativo
+
 ## Features
 
 * Cálculo de frete por peso, largura, altura e comprimento

@@ -287,6 +287,7 @@ class Correios extends \Magento\Shipping\Model\Carrier\AbstractCarrierOnline imp
             $accessData = new AccessData();
             $accessData->setUsuario($this->getConfigData('ect'));
             $accessData->setSenha($this->getConfigData('password'));
+            $accessData->setCodAdministrativo($this->getConfigData('codigoadm'));
             $params->setAccessData($accessData);
 
         }

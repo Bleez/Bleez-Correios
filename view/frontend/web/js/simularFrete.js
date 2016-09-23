@@ -50,7 +50,7 @@ define([
                 }
             },
             error: function(){
-                alert("Erro ao simular o frete");
+                alert("Não foi possivel simular o frete");
             }
         });
     });

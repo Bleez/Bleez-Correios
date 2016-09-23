@@ -56,7 +56,7 @@ class InstallData implements InstallDataInterface
                 'used_in_product_listing' => false,
                 'unique' => false,
                 'group' => 'Product Details',
-                'note' => "Caso não seja atribuido será usado o valor mínimo"
+                'note' => "Valor em Cm. Caso não seja atribuido será usado o valor mínimo"
             ]
         );
 
@@ -78,7 +78,7 @@ class InstallData implements InstallDataInterface
                 'used_in_product_listing' => false,
                 'unique' => false,
                 'group' => 'Product Details',
-                'note' => "Caso não seja atribuido será usado o valor mínimo"
+                'note' => "Valor em Cm. Caso não seja atribuido será usado o valor mínimo"
             ]
         );
 
@@ -100,7 +100,7 @@ class InstallData implements InstallDataInterface
                 'used_in_product_listing' => false,
                 'unique' => false,
                 'group' => 'Product Details',
-                'note' => "Caso não seja atribuido será usado o valor mínimo"
+                'note' => "Valor em Cm. Caso não seja atribuido será usado o valor mínimo"
             ]
         );
     }

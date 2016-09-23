@@ -9,12 +9,20 @@ define([
 ], function (_, ko, registry, Abstract, jquery, mask, url) {
     'use strict';
 
+    var checkoutLoader = jquery('#checkout-loader');
+
     return Abstract.extend({
         defaults: {
             loading: ko.observable(false),
             imports: {
                 update: '${ $.parentName }.country_id:value'
             }
+        },
+
+        initialize: function () {
+            this._super();
+            jquery('#'+this.uid).mask('00000-000');
+            return this;
         },
 
         /**
@@ -43,8 +51,6 @@ define([
 
             }
 
-            jquery('#'+this.uid).mask('99999-999');
-
             this.firstLoad = true;
         },
 
@@ -57,8 +63,8 @@ define([
             //    return;
             //}
 
-            if(validate.valid == true && this.value().length == 9){
-                this.loading(true);
+            if(validate.valid == true && this.value() && this.value().length == 9){
+                jquery('#checkout').append(checkoutLoader);
 
                 var element = this;
 
@@ -68,22 +74,29 @@ define([
                 var ajaxurl = url.build("rest/V1/consultaCep/"+value);
 
                 jquery.getJSON(ajaxurl, function(data) {
-                    if(registry.get(element.parentName + '.' + 'country_id')){
-                        registry.get(element.parentName + '.' + 'country_id').value('BR');
+                    if(data.error){
+                        alert(data.error);
+                    }else{
+                        if(registry.get(element.parentName + '.' + 'country_id')){
+                            registry.get(element.parentName + '.' + 'country_id').value('BR');
+                        }
+                        if(registry.get(element.parentName + '.' + 'street.0')){
+                            registry.get(element.parentName + '.' + 'street.0').value(data.logradouro);
+                        }
+                        if(registry.get(element.parentName + '.' + 'street.2')){
+                            registry.get(element.parentName + '.' + 'street.2').value(data.bairro);
+                        }
+                        if(registry.get(element.parentName + '.' + 'city')){
+                            registry.get(element.parentName + '.' + 'city').value(data.cidade);
+                        }
+                        if(registry.get(element.parentName + '.' + 'region_id')){
+                            registry.get(element.parentName + '.' + 'region_id').value(data.uf);
+                        }
                     }
-                    if(registry.get(element.parentName + '.' + 'street.0')){
-                        registry.get(element.parentName + '.' + 'street.0').value(data.logradouro);
-                    }
-                    if(registry.get(element.parentName + '.' + 'city')){
-                        registry.get(element.parentName + '.' + 'city').value(data.cidade);
-                    }
-                    if(registry.get(element.parentName + '.' + 'region_id')){
-                        registry.get(element.parentName + '.' + 'region_id').value(data.uf);
-                    }
-                    element.loading(false);
+                    jquery('#checkout-loader').remove();
                 });
             }else{
-                this.loading(false);
+                jquery('#checkout-loader').remove();
             }
 
         }

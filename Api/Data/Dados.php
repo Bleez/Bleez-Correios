@@ -43,4 +43,11 @@ interface Dados{
      */
     public function getUf();
 
+    /**
+     * Error
+     *
+     * @return string
+     */
+    public function getError();
+
 }

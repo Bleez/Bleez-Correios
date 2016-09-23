@@ -6,16 +6,17 @@
  */
 ?>
 <form id="simularFrete" action="<?php echo $this->getUrl('rest/V1/estimarFrete'); ?>">
-    <div class="fieldset">
-        <div class="control">
-            <input type="text" class="input-text" id="cep" required="required" pattern="\d{5}-{0,1}\d{3}" title="Cep invalido">
-        </div>
-        <div class="actions">
-            <input type="submit" value="Calcular Frete" class="action primary" id="sendFrete"  />
-        </div>
+    <h2 class="simulateTitle">
+        <!--
+            <i class="fa fa-truck"></i>
+         --> Calcule seu frete
+    </h2>
+    <div class="simularFrete_cont">
+        <input type="text" class="input-text simularFrete_submit_inputText" id="cep" required="required" pattern="\d{5}-{0,1}\d{3}" title="Cep invalido">
+        <input type="submit" value="Calcular Frete" class="action primary simularFrete_submit" id="sendFrete"  />
     </div>
-    <ul id="containerFrete" style="display: none">
 
+    <ul id="containerFrete" style="display: none" class="simularFrete_itens">
     </ul>
 </form>
 

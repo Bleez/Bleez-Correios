@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2015 Magento. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Email:etc/email_templates.xsd">
+    <template id="sales_email_shipment_template" label="New Shipment" file="shipment_new.html" type="html" module="Bleez_Correios" area="frontend"/>
+    <template id="sales_email_shipment_guest_template" label="New Shipment for Guest" file="shipment_new_guest.html" type="html" module="Bleez_Correios" area="frontend"/>
+</config>
