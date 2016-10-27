@@ -11,6 +11,17 @@
             <arguments>
                 <argument name="jsLayout" xsi:type="array">
                     <item name="components" xsi:type="array">
+                        <item name="summary-block-config" xsi:type="array">
+                            <item name="children" xsi:type="array">
+                                <item name="shipping-rates-validation" xsi:type="array">
+                                    <item name="children" xsi:type="array">
+                                        <item name="correios-rates-validation" xsi:type="array">
+                                            <item name="component" xsi:type="string">Bleez_Correios/js/shipping-rates-validation</item>
+                                        </item>
+                                    </item>
+                                </item>
+                            </item>
+                        </item>
                         <item name="block-summary" xsi:type="array">
                             <item name="children" xsi:type="array">
                                 <item name="block-shipping" xsi:type="array">

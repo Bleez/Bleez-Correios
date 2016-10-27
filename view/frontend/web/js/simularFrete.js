@@ -8,7 +8,7 @@ define([
 ], function ($, _, mask, storage, url, Component) {
     'use strict';
 
-    $('#cep').mask('99999-999')
+    $('#cep').mask('00000-000')
 
     if(storage.getShippingAddressFromData()) {
         $('#cep').val(storage.getShippingAddressFromData().postcode);

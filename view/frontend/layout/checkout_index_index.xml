@@ -11,12 +11,23 @@
             <arguments>
                 <argument name="jsLayout" xsi:type="array">
                     <item name="components" xsi:type="array" >
-                        <item name="checkout" xsi:type="array" >
+                        <item name="checkout" xsi:type="array">
                             <item name="children" xsi:type="array">
                                 <item name="steps" xsi:type="array">
                                     <item name="children" xsi:type="array">
                                         <item name="shipping-step" xsi:type="array">
                                             <item name="children" xsi:type="array">
+                                                <item name="step-config" xsi:type="array">
+                                                    <item name="children" xsi:type="array">
+                                                        <item name="shipping-rates-validation" xsi:type="array">
+                                                            <item name="children" xsi:type="array">
+                                                                <item name="correios-rates-validation" xsi:type="array">
+                                                                    <item name="component" xsi:type="string">Bleez_Correios/js/shipping-rates-validation</item>
+                                                                </item>
+                                                            </item>
+                                                        </item>
+                                                    </item>
+                                                </item>
                                                 <item name="shippingAddress" xsi:type="array">
                                                     <item name="children" xsi:type="array">
                                                         <item name="shipping-address-fieldset" xsi:type="array">
