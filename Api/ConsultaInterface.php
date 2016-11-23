@@ -7,7 +7,7 @@ interface ConsultaInterface
     /**
      * Consulta Cep
      *
-     * @param int $cep
+     * @param string $cep
      * @return \Bleez\Correios\Api\Data\Dados|Bool
      * @throws \Magento\Framework\Exception\NoSuchEntityException
      */

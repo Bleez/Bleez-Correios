@@ -7,7 +7,7 @@
         "php": "~5.6.0|~7.0.0",
         "tcesarpinho/php-sigep": ">=0.0.1",
         "cagartner/phpquery": ">=0.9.8",
-        "ext-soap": "*",
+        "ext-soap": "*"
     },
     "autoload": {
         "files": [
