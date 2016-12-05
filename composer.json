@@ -2,7 +2,7 @@
     "name": "bleez/correios",
     "description": "Modulo correios magento 2",
     "type": "magento2-module",
-    "version": "0.0.2",
+    "version": "0.0.3",
     "require": {
         "php": "~5.6.0|~7.0.0",
         "tcesarpinho/php-sigep": ">=0.0.1",

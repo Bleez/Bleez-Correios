@@ -179,7 +179,7 @@ class Correios extends \Magento\Shipping\Model\Carrier\AbstractCarrierOnline imp
                     $method->setCarrier('correios');
                     $method->setCarrierTitle($this->getConfigData('name'));
                     $method->setMethod($service->getServico()->getNome());
-                    if($this->getConfigData('free_shipping_enabled') && $service->getServico()->getCodigo() == $this->getConfigData('free_shipping_service')){
+                    if($this->getConfigData('free_shipping_enabled') && $service->getServico()->getCodigo() == $this->getConfigData('free_shipping_service') && $request->getFreeShipping()){
                         $method->setMethodTitle($this->getConfigData('free_shipping_text') . sprintf($this->getConfigData('text_days'), $this->_calculateShippingDays($service)));
                         $method->setPrice(0);
                         $method->setCost(0);
@@ -296,6 +296,7 @@ class Correios extends \Magento\Shipping\Model\Carrier\AbstractCarrierOnline imp
         $params->setPeso($this->_calculateWeightShipping($request));
 
         $phpSigep = new Real();
+        $this->_logger->debug(print_r($params, true));
         return $phpSigep->calcPrecoPrazo($params);
     }
 
@@ -318,9 +319,26 @@ class Correios extends \Magento\Shipping\Model\Carrier\AbstractCarrierOnline imp
      */
     protected function _calculateWeightShipping(RateRequest $request){
         if($this->getConfigData('divisao_frete')) {
-            if ($request->getPackageWeight() > $this->_helper->getLimitWeight()) {
+
+            /**
+             * Se algum item for maior que o limite do correios retorna o peso sem divisão
+             */
+            foreach($request->getAllItems() as $item){
+                /**
+                 * @var $item \Magento\Quote\Model\Quote|Item
+                 */
+                if($item->getWeight() > $this->_helper->getLimitWeight()){
+                    $this->_logger->debug('1Peso: '.$request->getPackageWeight());
+                    return $request->getPackageWeight();
+                }
+            }
+
+            /**
+             * Divide o peso pela quantidade de itens
+             */
+            if ($request->getPackageWeight() > $this->_helper->getLimitWeight() || $request->getPackageQty() > 1) {
                 $shipWeight = 0;
-                for ($k = 1; $k < $request->getPackageQty(); $k++) {
+                for ($k = 1; $k <= $request->getPackageQty(); $k++) {
                     if ($request->getPackageWeight() / $k <= $this->_helper->getLimitWeight()) {
                         $shipWeight = $request->getPackageWeight() / $k;
                         $this->_qtdFretes = $k;
@@ -328,11 +346,13 @@ class Correios extends \Magento\Shipping\Model\Carrier\AbstractCarrierOnline imp
                     }
                 }
                 if ($shipWeight > 0) {
+                    $this->_logger->debug('2Peso: '.number_format($shipWeight, 2));
                     return number_format($shipWeight, 2);
                 }
             }
         }
 
+        $this->_logger->debug('3Peso: '.$request->getPackageWeight());
         return $request->getPackageWeight();
     }
 

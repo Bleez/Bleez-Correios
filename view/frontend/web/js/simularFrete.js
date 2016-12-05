@@ -19,12 +19,21 @@ define([
 
         var data = $('#product_addtocart_form').serializeArray();
         var info = {};
+
+        $('#containerFrete').slideUp();
+
         for (var i = 0, l = data.length; i < l; i++) {
+            if(data[i].name.search('super_attribute') != -1){
+                if(data[i].value == ""){
+                    $('#containerFrete').html('');
+                    $('#containerFrete').append('<li>Configure o produto antes de calcular o frete</li>');
+                    $('#containerFrete').slideDown('slow');
+                    return false;
+                }
+            }
             info[data[i].name] = data[i].value;
         }
         info['cep'] = $('#cep').val();
-
-        $('#containerFrete').slideUp();
 
         $.ajax({
             url: $('#simularFrete').attr('action'),
