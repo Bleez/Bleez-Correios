@@ -4,7 +4,7 @@
     </head>
     <body>
         <referenceContainer name="product.info.extrahint">
-            <block class="Bleez\Correios\Block\Catalog\Product\View\CalcularFrete" name="bleez_correios_frete" after="product.info.social" template="catalog/product/view/frete.phtml"></block>
+            <block class="Bleez\Correios\Block\Catalog\Product\View\CalcularFrete" name="bleez_correios_frete" after="product.info.social" template="catalog/product/view/frete.phtml" ifconfig="carriers/correios/show_on_product_page"></block>
         </referenceContainer>
     </body>
 </page>

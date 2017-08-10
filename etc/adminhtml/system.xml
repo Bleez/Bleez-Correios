@@ -83,62 +83,69 @@
                         <field id="active">1</field>
                     </depends>
                 </field>
-                <field id="aviso_recebimento" translate="label" type="select" sortOrder="12" showInDefault="1" showInWebsite="1" showInStore="1">
+                <field id="show_on_product_page" translate="label" type="select" sortOrder="12" showInStore="1" showInWebsite="1" showInDefault="1">
+                    <label>Mostrar Estimativa na página do produto</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <depends>
+                        <field id="active">1</field>
+                    </depends>
+                </field>
+                <field id="aviso_recebimento" translate="label" type="select" sortOrder="13" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Aviso de Recebimento</label>
                     <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
                     <depends>
                         <field id="active">1</field>
                     </depends>
                 </field>
-                <field id="mao_propria" translate="label" type="select" sortOrder="13" showInDefault="1" showInWebsite="1" showInStore="1">
+                <field id="mao_propria" translate="label" type="select" sortOrder="14" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Mão Propria</label>
                     <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
                     <depends>
                         <field id="active">1</field>
                     </depends>
                 </field>
-                <field id="valor_declarado" translate="select" type="select" sortOrder="14" showInDefault="1" showInWebsite="1" showInStore="1">
+                <field id="valor_declarado" translate="select" type="select" sortOrder="15" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Valor Declarado</label>
                     <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
                     <depends>
                         <field id="active">1</field>
                     </depends>
                 </field>
-                <field id="divisao_frete" translate="label" type="select" sortOrder="15" showInDefault="1" showInWebsite="1" showInStore="1">
+                <field id="divisao_frete" translate="label" type="select" sortOrder="16" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Habilitar divisão de frete</label>
                     <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
                     <depends>
                         <field id="active">1</field>
                     </depends>
                 </field>
-                <field id="codigoadm" translate="label" type="text" sortOrder="16" showInDefault="1" showInWebsite="1" showInStore="1">
+                <field id="codigoadm" translate="label" type="text" sortOrder="17" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Código administrativo</label>
                     <comment>Obrigatório se serviço for com contrato</comment>
                     <depends>
                         <field id="active">1</field>
                     </depends>
                 </field>
-                <field id="ect" translate="label" type="text" sortOrder="16" showInDefault="1" showInWebsite="1" showInStore="1">
+                <field id="ect" translate="label" type="text" sortOrder="18" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Usuario(ECT)</label>
                     <comment>Obrigatório se serviço for com contrato</comment>
                     <depends>
                         <field id="active">1</field>
                     </depends>
                 </field>
-                <field id="password" translate="label" type="password" sortOrder="17" showInDefault="1" showInWebsite="1" showInStore="1">
+                <field id="password" translate="label" type="password" sortOrder="19" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Senha</label>
                     <comment>Obrigatório se serviço for com contrato</comment>
                     <depends>
                         <field id="active">1</field>
                     </depends>
                 </field>
-                <field id="cnpj" translate="label" type="text" sortOrder="18" showInDefault="1" showInWebsite="1" showInStore="1">
+                <field id="cnpj" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Cnpj</label>
                     <depends>
                         <field id="active">1</field>
                     </depends>
                 </field>
-                <field id="servicesnames" translate="label" sortOrder="19" showInStore="1" showInWebsite="1" showInDefault="1">
+                <field id="servicesnames" translate="label" sortOrder="21" showInStore="1" showInWebsite="1" showInDefault="1">
                     <label>Nome dos serviços</label>
                     <frontend_model>Bleez\Correios\Block\System\Config\Form\Field\ServicesNames</frontend_model>
                     <backend_model>Bleez\Correios\Model\Config\Backend\ServicesNames</backend_model>
