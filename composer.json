@@ -1,11 +1,12 @@
 {
-    "name": "bleez/correios",
+    "name": "bleez/igor-correios",
     "description": "Modulo correios magento 2",
     "type": "magento2-module",
-    "version": "0.0.3",
+    "version": "0.0.4",
     "require": {
         "php": "~5.6.0|~7.0.0",
-        "tcesarpinho/php-sigep": ">=0.0.1",
+        "stavarengo/php-sigep": ">=0.0.1",
+        "stavarengo/php-sigep-fpdf": ">=0.0.1",
         "cagartner/phpquery": ">=0.9.8",
         "ext-soap": "*"
     },
@@ -17,5 +18,15 @@
             "Bleez\\Correios\\": ""
         }
     },
-    "minimum-stability": "dev"
+    "minimum-stability": "dev",
+    "repositories": [
+       {
+        "type": "git",
+        "url": "https://github.com/stavarengo/php-sigep.git"
+       },
+       {
+        "type": "git",
+        "url": "https://github.com/stavarengo/php-sigep-fpdf.git"
+       }
+    ]
 }
